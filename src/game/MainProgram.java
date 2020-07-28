@@ -9,15 +9,15 @@ public class MainProgram {
 
         int[][] generationZeroGrid = userInput.getGenerationZeroGrid(gridRows, gridColumns);
 
-        int[] coordinatesAndN = userInput.getCoordinatesAndN();
-        int rowCoordinate = coordinatesAndN[0];
-        int columnCoordinate = coordinatesAndN[1];
-        int n = coordinatesAndN[2];
+        int[] lastLineArguments = userInput.getLastLineArguments();
+        int rowCoordinate = lastLineArguments[0];
+        int columnCoordinate = lastLineArguments[1];
+        int n = lastLineArguments[2];
 
         Grid grid = new Grid();
         int generationsTheCellWasGreen = grid.getGenerationsTheCellWasGreen(generationZeroGrid, rowCoordinate, columnCoordinate, n);
 
-        // Variant I. Only print number of generation the cell was green
+        // Variant I. Only print number of generations the cell was green
         System.out.println(generationsTheCellWasGreen);
 
         //Variant II. Here program print message in the console

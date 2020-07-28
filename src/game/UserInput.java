@@ -60,8 +60,8 @@ public class UserInput {
         return generationZeroGrid;
     }
 
-    public int[] getCoordinatesAndN() {
-        int[] coordinatesAndN = new int[3];
+    public int[] getLastLineArguments() {
+        int[] lastLineArguments = new int[3];
         String[] cellCoordinatesAndNComponents = null;
 
         System.out.println("Please enter coordinates x and y and generation N");
@@ -83,10 +83,10 @@ public class UserInput {
         int rowCoordinate = Integer.parseInt(coordinateYComponent);
         int n = Integer.parseInt(nComponent);
 
-        coordinatesAndN[0] = rowCoordinate;
-        coordinatesAndN[1] = columnCoordinate;
-        coordinatesAndN[2] = n;
+        lastLineArguments[0] = rowCoordinate;
+        lastLineArguments[1] = columnCoordinate;
+        lastLineArguments[2] = n;
 
-        return coordinatesAndN;
+        return lastLineArguments;
     }
 }
