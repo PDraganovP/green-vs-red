@@ -2,10 +2,19 @@ package game;
 
 import java.util.Scanner;
 
+/**
+ * The class includes methods that read grid size, generation Zero grid,
+ * cell location coordinates(X,Y) and last generation grid(number
+ * of the grid generations excluded Generation Zero) from the console
+ */
 public class UserInput {
 
     private Scanner scanner = new Scanner(System.in);
 
+    /**
+     * @return integer array that contains the number of the grid rows and
+     * the number of the grid columns
+     */
     public int[] getGridSize() {
         int[] gridSize = new int[2];
         int gridColumns = 0;
@@ -32,6 +41,11 @@ public class UserInput {
         return gridSize;
     }
 
+    /**
+     * @param gridRows    number of the grid rows
+     * @param gridColumns number of the grid columns
+     * @return a matrix(Generation Zero grid)
+     */
     public int[][] getGenerationZeroGrid(int gridRows, int gridColumns) {
         int[][] generationZeroGrid = new int[gridRows][gridColumns];
         System.out.println("Please enter Generation Zero grid");
@@ -60,6 +74,11 @@ public class UserInput {
         return generationZeroGrid;
     }
 
+    /**
+     * @return integer array that contains the row and the column coordinates where
+     * the cell is located.The array contains and N that is the last grid generation(
+     * number of the grid generations excluded Generation Zero)
+     */
     public int[] getLastLineArguments() {
         int[] lastLineArguments = new int[3];
         String[] cellCoordinatesAndNComponents = null;

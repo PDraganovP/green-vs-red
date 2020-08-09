@@ -15,10 +15,10 @@ public class MainProgram {
         int n = lastLineArguments[2];
 
         Grid grid = new Grid();
-        int generationsTheCellWasGreen = grid.getGenerationsTheCellWasGreen(generationZeroGrid, rowCoordinate, columnCoordinate, n);
+        int numberOfGenerationsTheCellWasGreen = grid.getNumberOfGenerationsTheCellWasGreen(generationZeroGrid, rowCoordinate, columnCoordinate, n);
 
         // Variant I. Only print number of generations the cell was green
-        System.out.println(generationsTheCellWasGreen);
+        System.out.println(numberOfGenerationsTheCellWasGreen);
 
         //Variant II. Here program print message in the console
        /* System.out.printf("The cell with coordinates [%d,%d] was green\n" +

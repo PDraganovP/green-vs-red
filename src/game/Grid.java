@@ -2,9 +2,26 @@ package game;
 
 import java.util.Arrays;
 
+/**
+ * The class includes method that returns the number generations that
+ * given cell was green
+ */
 public class Grid {
 
-    public int getGenerationsTheCellWasGreen(int[][] generationZeroGrid, int rowCoordinate, int columnCoordinate, int n) {
+    /**
+     * Returns the number of generations that the cell with coordinates rowCoordinates and
+     * columnCoordinates was green
+     *
+     * @param generationZeroGrid initial grid(Generation Zero)
+     * @param rowCoordinate      show in which row the cell is located. The coordinates
+     *                           start from 0
+     * @param columnCoordinate   show in which column the cell is located. The coordinate
+     *                           start from 0
+     * @param n                  integer that show the last generation of the grid(number
+     *                           of the grid generations excluded Generation Zero).
+     * @return the number generations the cell was green
+     */
+    public int getNumberOfGenerationsTheCellWasGreen(int[][] generationZeroGrid, int rowCoordinate, int columnCoordinate, int n) {
         int[][] grid = generationZeroGrid;
         int numberOfGenerationTheCellWasGreen = 0;
         int cellYX = generationZeroGrid[rowCoordinate][columnCoordinate];
@@ -31,6 +48,12 @@ public class Grid {
         return numberOfGenerationTheCellWasGreen;
     }
 
+    /**
+     * Returns matrix that represent next grid generation
+     *
+     * @param grid two dimensional integer array
+     * @return next grid generation
+     */
     private int[][] getNextGridGeneration(int[][] grid) {
         int numberOfRows = grid.length;
         int numberOfColumns = grid[0].length;
@@ -100,6 +123,11 @@ public class Grid {
 
     }
 
+    /**
+     * Print matrix
+     *
+     * @param matrix a matrix that will be printed on the console
+     */
     private void printGrid(int[][] matrix) {
         int numberOfRows = matrix.length;
 
