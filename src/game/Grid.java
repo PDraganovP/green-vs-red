@@ -64,55 +64,8 @@ public class Grid {
             for (int j = 0; j < numberOfColumns; j++) {
                 int greenCellCounter = 0;
                 int gridColor = grid[i][j];
+                greenCellCounter = countCellNeighboursThatAreGreen(grid, i, j);
 
-                if (i - 1 >= 0 && j - 1 >= 0) {
-                    int upperLeftElement = grid[i - 1][j - 1];
-                    if (upperLeftElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (i - 1 >= 0) {
-                    int upperElement = grid[i - 1][j];
-                    if (upperElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (i - 1 >= 0 && j + 1 < numberOfColumns) {
-                    int upperRightElement = grid[i - 1][j + 1];
-                    if (upperRightElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (j - 1 >= 0) {
-                    int leftElement = grid[i][j - 1];
-                    if (leftElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (j + 1 < numberOfColumns) {
-                    int rightElement = grid[i][j + 1];
-                    if (rightElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (i + 1 < numberOfRows && j - 1 >= 0) {
-                    int bottomLeftElement = grid[i + 1][j - 1];
-                    if (bottomLeftElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (i + 1 < numberOfRows) {
-                    int bottomElement = grid[i + 1][j];
-                    if (bottomElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
-                if (i + 1 < numberOfRows && j + 1 < numberOfColumns) {
-                    int bottomRightElement = grid[i + 1][j + 1];
-                    if (bottomRightElement == 1) {
-                        greenCellCounter++;
-                    }
-                }
                 Cell cell = new Cell();
                 int newCellColor = cell.changeCellColor(gridColor, greenCellCounter);
                 nextGridGeneration[i][j] = newCellColor;
@@ -121,6 +74,70 @@ public class Grid {
 
         return nextGridGeneration;
 
+    }
+
+    /**
+     * Count the number of the cell neighbours that are green
+     *
+     * @param grid two dimensional integer array
+     * @param i    index of the grid row
+     * @param j    index of the grid column
+     * @return the number of the cell neighbours that are green
+     */
+    private int countCellNeighboursThatAreGreen(int[][] grid, int i, int j) {
+        int numberOfRows = grid.length;
+        int numberOfColumns = grid[0].length;
+        int greenCellCounter = 0;
+        if (i - 1 >= 0 && j - 1 >= 0) {
+            int upperLeftElement = grid[i - 1][j - 1];
+            if (upperLeftElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (i - 1 >= 0) {
+            int upperElement = grid[i - 1][j];
+            if (upperElement == 1) {
+                greenCellCounter++;
+            }
+        }
+
+        if (i - 1 >= 0 && j + 1 < numberOfColumns) {
+            int upperRightElement = grid[i - 1][j + 1];
+            if (upperRightElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (j - 1 >= 0) {
+            int leftElement = grid[i][j - 1];
+            if (leftElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (j + 1 < numberOfColumns) {
+            int rightElement = grid[i][j + 1];
+            if (rightElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (i + 1 < numberOfRows && j - 1 >= 0) {
+            int bottomLeftElement = grid[i + 1][j - 1];
+            if (bottomLeftElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (i + 1 < numberOfRows) {
+            int bottomElement = grid[i + 1][j];
+            if (bottomElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        if (i + 1 < numberOfRows && j + 1 < numberOfColumns) {
+            int bottomRightElement = grid[i + 1][j + 1];
+            if (bottomRightElement == 1) {
+                greenCellCounter++;
+            }
+        }
+        return greenCellCounter;
     }
 
     /**
@@ -135,6 +152,5 @@ public class Grid {
             System.out.println(Arrays.toString(matrix[i]));
 
         }
-
     }
 }

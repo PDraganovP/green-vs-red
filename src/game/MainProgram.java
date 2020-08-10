@@ -1,5 +1,10 @@
 package game;
 
+/**
+ * The class runs program that calculate in how many generations from Generation Zero to
+ * until generation N given cell was green. Calculation include Generation Zero and
+ * generation N.
+ */
 public class MainProgram {
     public static void main(String[] args) {
         UserInput userInput = new UserInput();
